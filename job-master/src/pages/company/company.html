@@ -1,0 +1,90 @@
+<!--
+  Generated template for the CompanyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Company</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class = "page">
+    <ion-searchbar animated
+    [(ngModel)]="myInput"
+    [showCancelButton]="shouldShowCancel" > 
+  </ion-searchbar>
+  <div text-center>
+  <button ion-button (click)="getdata()" color="primary" block>Search</button>
+  </div>
+
+
+  <form [formGroup] = "formgroup">
+  <ion-list>
+   
+  <ion-item>
+      <ion-label floating>Company Name</ion-label>
+    <ion-input type="text" formControlName="cname"  [(ngModel)]="name1"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="cname.hasError('required') && cname.touched">
+        <p class="pp"><b>Company Name Is Required</b></p>
+      </ion-item>
+      <ion-item *ngIf="formgroup.controls.cname.hasError('pattern') && formgroup.controls.cname.touched">
+        <p class="pp"><b>Company Name Should Only have Alphabets</b></p>
+    </ion-item>
+
+  
+
+
+
+    <ion-item>
+       <ion-label floating>Requirements</ion-label>
+    <ion-input type="text" formControlName="deg" [(ngModel)]="degree1"></ion-input>
+   </ion-item>
+   <ion-item *ngIf="deg.hasError('required') && deg.touched">
+      <p class="pp"><b>Subject Is Required</b></p>
+    </ion-item>
+
+
+
+
+
+ <ion-item>
+     <ion-label floating>Email</ion-label>
+    <ion-input type="Email" formControlName="mail" [(ngModel)]="email1"></ion-input>
+   </ion-item>
+   <ion-item *ngIf="mail.hasError('required') && mail.touched">
+      <p class="pp"><b>Email Is Required</b></p>
+    </ion-item>
+    <ion-item *ngIf="mail.hasError('pattern') && mail.touched">
+      <p class="pp"><b>Email Is InInvalid</b></p>
+    </ion-item>
+
+
+
+<div>
+  <button ion-button block (click) ="insertdata()" [disabled]="!formgroup.valid">Enter Details</button>
+  <button ion-button block color="primary"type="Reset">Reset</button>
+  </div>
+
+
+
+   </ion-list>
+  </form>
+
+
+        <ion-list *ngFor ="let ress of res" >
+            <ion-item text-wrap >
+              <p class="bg"><b>Name={{ress.Name}}</b></p> 
+              <p class="bg"><b>Quali={{ress.Quali}}</b></p>
+              <p class="bg"><b>Contact={{ress.Contact}}</b></p>
+              <p class="bg"><b>Mail={{ress.Mail}}</b></p>
+              </ion-item>
+              </ion-list>
+              <button ion-button (click) ="push()" block color="primary">More Info</button>
+
+</ion-content>

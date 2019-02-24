@@ -1,0 +1,37 @@
+<!--
+  Generated template for the GetAdvanceInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>GetAdvanceInfo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <button ion-button (click)="display()" block color="primary">Show Information</button>
+
+
+    <ion-list *ngFor ="let ressss of resss" >
+        <ion-item text-wrap >
+          <p class="bg"><b>Name={{ressss.Name}}</b></p> 
+          <p class="bg"><b>Quali={{ressss.Degree}}</b></p>
+          <p class="bg"><b>Contact={{ressss.Contact}}</b></p>
+          <p class="bg"><b>Mail={{ressss.Mail}}</b></p>
+          <p class="bg"><b>Age={{ressss.age}}</b></p> 
+          <p class="bg"><b>College={{ressss.college}}</b></p>
+          <p class="bg"><b>Master In Code={{ressss.code}}</b></p>
+          <p class="bg"><b>Major Project Done={{ressss.project}}</b></p>
+          <p class="bg"><b>CGPA={{ressss.cgpa}}</b></p> 
+          <p class="bg"><b>Years of Experiance={{ressss.exp}}</b></p>
+          <p class="bg"><b>Current Status={{ressss.status}}</b></p>
+          <p class="bg"><b>Additional Skills={{ressss.skill}}</b></p>
+          </ion-item>
+          </ion-list>
+
+</ion-content>

@@ -1,0 +1,112 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detailed Information</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <p class="bg" align="center"><b>
+    PLEASE TELL US MORE ABOUT YOU
+  </b></p>
+
+  <form [formGroup] = "formgroup">
+      <ion-list>
+       
+      <ion-item>
+          <ion-label floating>Age :</ion-label>
+        <ion-input type="text" formControlName="eage"  [(ngModel)]="age"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="eage.hasError('required') && eage.touched">
+            <p class="pp"><b>Age Is Required</b></p>
+          </ion-item>
+          <ion-item *ngIf="formgroup.controls.eage.hasError('pattern') && formgroup.controls.eage.touched">
+            <p class="pp"><b>Age Should Only have Numbers</b></p>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>College :</ion-label>
+         <ion-input type="text" formControlName="col" [(ngModel)]="col1"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="col.hasError('required') && col.touched">
+           <p class="pp"><b>College Is Required</b></p>
+         </ion-item>
+
+        <ion-item>
+            <ion-label floating>Final CGPA :</ion-label>
+          <ion-input type="text" formControlName="cgpa"  [(ngModel)]="cgpa1"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="cgpa.hasError('required') && cgpa.touched">
+              <p class="pp"><b>CGPA Is Required</b></p>
+            </ion-item>
+            <ion-item *ngIf="formgroup.controls.cgpa.hasError('pattern') && formgroup.controls.cgpa.touched">
+              <p class="pp"><b>CGPA Should Only have Numbers</b></p>
+          </ion-item>
+    
+    
+        <ion-item>
+           <ion-label floating>Can Code In :</ion-label>
+        <ion-input type="text" formControlName="deg" [(ngModel)]="degree"></ion-input>
+       </ion-item>
+       <ion-item *ngIf="deg.hasError('required') && deg.touched">
+          <p class="pp"><b>Subject Is Required</b></p>
+        </ion-item>
+
+
+     <ion-item>
+         <ion-label floating>Major Projects Done :</ion-label>
+        <ion-input type="text" formControlName="deg1" [(ngModel)]="pg"></ion-input>
+       </ion-item>
+       <ion-item *ngIf="deg1.hasError('required') && deg1.touched">
+          <p class="pp"><b>Detail Is Required</b></p>
+        </ion-item>
+
+    
+       <div>
+       <ion-item>
+        <ion-label floating>Year Of Experience :</ion-label>
+        <ion-input type="text" formControlName="num" [(ngModel)]="num1"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="num.hasError('pattern') && num.touched">
+          <p class="pp"><b>Years should only have Numbers</b></p>
+        </ion-item>
+        <ion-item *ngIf="num.hasError('required') && num.touched">
+          <p class="pp"><b>This Detail is Required </b></p>
+        </ion-item>
+      </div>
+
+      <ion-item>
+          <ion-label floating>Current Status :</ion-label>
+         <ion-input type="text" formControlName="Status" [(ngModel)]="status1"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="Status.hasError('required') && Status.touched">
+           <p class="pp"><b>Detail Is Required</b></p>
+         </ion-item>
+
+
+      <ion-item>
+          <ion-label floating>Any Other Skill :</ion-label>
+         <ion-input type="text" formControlName="skill" [(ngModel)]="skill1"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="skill.hasError('required') && skill.touched">
+           <p class="pp"><b>Detail Is Required</b></p>
+         </ion-item> 
+         
+
+    
+    
+    <div>
+      <button ion-button block (click) ="insertdata()" [disabled]="!formgroup.valid">Enter Details</button>
+      <button ion-button block color="primary"type="Reset">Reset</button>
+      </div>
+    
+    
+    
+       </ion-list>
+      </form>
+
+
+</ion-content>
